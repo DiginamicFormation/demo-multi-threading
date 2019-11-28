@@ -49,6 +49,9 @@ public class AppelMultiThreading {
 		// Si on invoque cette méthode sur un futur non terminé, la méthode
 		// get() retourne null.
 		while (!future1.isDone() && !future2.isDone() && !future3.isDone()){
+			
+			// Ce micro temps de pause est destiné à éviter que le thread
+			// principale ne "gèle/freeze" l'environnement de développement.
 			Thread.sleep(1);
 		}
 		
