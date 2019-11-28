@@ -10,7 +10,12 @@ import java.util.concurrent.Callable;
  */
 public class Traitement3 implements Callable<Integer> {
 
-	
+	/**
+	 * Obligation de rédéfinir la méthode call. 
+	 * Comme la classe Traitement3 implémente Call<Integer> alors
+	 * la méthode call() doit retourner un résultat de type Integer
+	 */
+	@Override
 	public Integer call() throws Exception {
 		Integer somme = 0;
 		for (int i=1; i<=25; i++){
