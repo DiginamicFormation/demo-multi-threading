@@ -32,13 +32,22 @@ public class AppelMultiThreading {
 		ExecutorService threadService = Executors.newFixedThreadPool(3);
 		
 		// on demande l'exécution du traitement 1 à l'executor service
+		// La méthode submit retourne un objet de type Future
+		// Cet objet futur possède une méthode get() qui retourne le résultat
+		// du traitement 1 uniquement lorsque le traitement 1 sera terminé.
 		Future<Integer> future1 = threadService.submit(tt1);
+		
 		// on demande l'exécution du traitement 2 à l'executor service
 		Future<Integer> future2 = threadService.submit(tt2);
+		
 		// on demande l'exécution du traitement 3 à l'executor service
 		Future<Integer> future3 = threadService.submit(tt3);
 		
-		// On attend que tous les traitements // soient terminés
+		// On attend que tous les traitements soient terminés de manière
+		// à ensuite pouvoir invoquer la méthode get() de chaque objet
+		// future.
+		// Si on invoque cette méthode sur un futur non terminé, la méthode
+		// get() retourne null.
 		while (!future1.isDone() && !future2.isDone() && !future3.isDone()){
 			Thread.sleep(1);
 		}
