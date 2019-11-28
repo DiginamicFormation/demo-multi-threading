@@ -11,18 +11,14 @@ import java.util.concurrent.Callable;
 public class Traitement3 implements Callable<Integer> {
 
 	
-	public Integer call() {
+	public Integer call() throws Exception {
 		Integer somme = 0;
 		for (int i=1; i<=25; i++){
 			System.out.println("Traitement 3 - étape " + i);
 			somme+=i;
-			try {
-				Thread.sleep(375);
-			} catch (InterruptedException e) {
-				// en cas de problème de gestion de thread, je génère
-				// une exception pour interrompre le thread
-				throw new RuntimeException(e);
-			}
+			
+			// Temps de pause de 375 ms pour simuler un traitement long
+			Thread.sleep(375);
 		}
 		return somme;
 	}
