@@ -40,11 +40,11 @@ public class AppelMultiThreading {
 		
 		// On attend que tous les traitements // soient terminés
 		while (!future1.isDone() && !future2.isDone() && !future3.isDone()){
-			Thread.sleep(10);
+			Thread.sleep(1);
 		}
 		
 		// Une fois tous les traitements terminés, on récupère les résultats
-		// retournés par chaque traitement pour les agrégés.
+		// retournés par chaque traitement pour les agréger.
 		Integer sommeGlobale = future1.get()+future2.get()+future3.get();
 		
 		// On affiche le résultat final
