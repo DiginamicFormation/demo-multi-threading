@@ -21,7 +21,7 @@ public class AppelMultiThreading {
 	public static void main(String[] args) throws Exception {
 		
 		// Chaque classe Traitement1, 2 et 3 implémentent une interface Callable.
-		// qui oblige à redéfinir la méthode run.
+		// qui oblige à redéfinir la méthode call.
 		Traitement1 tt1 = new Traitement1();
 		Traitement2 tt2 = new Traitement2();
 		Traitement3 tt3 = new Traitement3();
